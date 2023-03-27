@@ -39,9 +39,10 @@ function Detail(){
       <div className="header">{ele.Title}</div>
       <div className="meta">{ele.Name}</div>
       <div className="description" onClick={(e)=>{handleC(ele)}}>
-        <iframe src={ele.Link} title="Video"></iframe>    
+        <h3>Video</h3>
+        <iframe src={ele.Link} title="Video" onClick={(e)=>{handleC(ele)}}></iframe>    
       </div>
-      <Link to="/Create"><button className="ui button primary">edit</button></Link>
+      <Link to="/Create"><button className="ui button primary" onClick={(e)=>updateH(ele.id)}>edit</button></Link>
       <button className="ui button primary" onClick={(e)=>{deleteH(ele.id)}}>delete</button>
     </div>}
                     else{return }
