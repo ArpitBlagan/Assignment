@@ -27,7 +27,12 @@ function Detail(){
     const handleC=(ele)=>{
         console.log("Clicked");
         const date=new Date();
-        dispatch(change({ele,date}));
+        const obj={
+            Title:ele.Title,
+            Name:ele.Name,
+            date:date
+        }
+        dispatch(change(obj));
     }
     return<>
         <Link to="/"><h2 style={{marginBottom:"20px"}}>Home</h2></Link>

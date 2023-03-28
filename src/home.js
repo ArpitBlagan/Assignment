@@ -19,11 +19,10 @@ function Home(){
     const his=useSelector(state=>state.buckets.cards);
     useEffect(()=>{
         setHis(his);
-    },[his]);
+    },[his]);console.log(history[0]);
     console.log(arr);const dispatch=useDispatch();
-    console.log(history);
     return <div style={{display:'flex'}}>
-        <div className='class="ui sidebar inverted vertical menu"'>
+        <div style={{marginRight:'100px'}}>
         {arr.map((ele,index)=>{
             const path=`/${ele.Title}`;
             if(ele.Title==="Home"){return <Link key={index} to="/" onClick={()=>{
@@ -39,15 +38,17 @@ function Home(){
                 dispatch(one(ele.Title));
             }}><h2 style={{marginBottom:"20px"}}>{ele.Title}</h2></Link>;}
         })}</div>
-        <div style={{marginLeft:'20px'}}>
+        <div><h3>History</h3>
+        <div className="ui four column doubling stackable grid container" style={{marginLeft:'100px'}}>
             {history.map((ele,index)=>{
-                return <div key={index}>
-                    <p>{ele.ele.Title}</p>
-                    <p>{ele.ele.Name}</p>
-                    <p>{ele.ele.Link}</p>
+                return <div className='column' key={index}>
+                    <div className="content"><p>{ele.Title}</p>
+                    <p>{ele.Name}</p>
+                    <p>{JSON.stringify(ele.date)}</p>
+                    </div>
                 </div>;
             })}
-        </div>
+        </div></div>
     </div>
 }
 export default Home;
